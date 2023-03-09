@@ -1,0 +1,15 @@
+int *linhadaMatriz(int *mat, int n, int m, int l){
+	if (l >= n || l < 0){
+		printf("Nao foi possivel localizar a linha");
+	}
+	int i,j;
+	int *vetor = malloc(m*sizeof(int));
+	for (i = 0; i < n; i++){
+		if (i == l){
+			for (j = 0; j < m; j++){
+				vetor[j] = mat[i*m+j];
+			}
+		}
+	}	
+	return vetor;
+}

@@ -1,0 +1,17 @@
+int *colunadaMatriz(int *mat, int n, int m, int p){
+	if (p >= m || p < 0){
+		printf("Nao foi possivel localizar a coluna");
+		return;
+	}
+	int i,j,k = 0;
+	int *vetor = malloc(n*sizeof(int));
+	for (i = 0; i < n; i++){
+		for (j = 0; j < m; j++){
+			if (j == p){
+				vetor[k] = mat[i*m+j];
+				k++;
+			}
+		}
+	}	
+	return vetor;
+}

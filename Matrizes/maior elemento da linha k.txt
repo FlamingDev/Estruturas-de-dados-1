@@ -1,0 +1,19 @@
+int MaiorElementodaMatriz(int *v, int n, int m, int k){
+	int i,j, maior = 0;
+	if (v != NULL && n>=0 && m>=0 && k>=0){
+		if (k <= n){
+			maior = v[0];
+			for (i = 0; i < n; i++){
+				if (i == k){
+					for (j = 0; j < m; j++){
+						if (v[i*m+j] > maior){
+							maior = v[i*m+j];
+						}
+					}
+					return maior;
+				}
+			}
+		}
+	}
+	return -1;
+}

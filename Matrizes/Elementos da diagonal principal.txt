@@ -1,0 +1,21 @@
+int *ElementosDiagonalPrincipal(int *v, int n, int m){
+	int i,j, k = 0;
+	int *dp;
+	if (v != NULL && n>=0 && m>=0){
+		if (n == m){
+			dp = (int *) malloc(n*sizeof(int));
+			if (dp != NULL){
+				for (i = 0; i < n; i++){
+					for (j = 0; j < m; j++){
+						if (i == j){
+							dp[k] = v[i*m+j];
+							k++;
+						}
+					}
+				}
+				return dp;	
+			}
+		}
+	}
+	return NULL;
+}

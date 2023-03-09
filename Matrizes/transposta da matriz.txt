@@ -1,0 +1,17 @@
+int *Transposta(int *mat, int n, int m){
+	int i,j,k = 0, *v;
+	if (mat != NULL){
+		if (n>0 && m>0){
+			v = (int *) malloc(n*m*sizeof(int));
+			if (v != NULL){
+				for (i = 0; i < n; i++){
+					for (j = 0; j < m; j++, k++){
+						v[k] = mat[j*m+i];
+					}
+				}
+				return v;
+			}
+		}
+	}
+	return NULL;
+}

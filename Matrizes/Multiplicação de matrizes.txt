@@ -1,0 +1,37 @@
+- O número de colunas da primeira deve ser igual ao número de linhas da segunda
+- A matriz multiplicada terá o numero de linhas da primeira e o número de colunas da segunda
+- O primeiro for é < do que o numero de linhas da primeira matriz
+- O segundo for é < do que o número de colunas da segunda matriz
+- O terceiro for é < do que o número de colunas da primeira matriz, que é igual ao numero de linhas da segunda
+- result += mA[i][k] * mb[k][j];
+- mc[i][j] = result;
+- result = 0;
+
+float **multMatrix(float **ma, float **mb, int n, int m, int p, int q){
+	float **mc;
+	int i,j,k;
+	float result = 0;
+	if (ma != NULL && mb != NULL){
+		if (n>0 && m>0 && p>0 && q>0){
+			if (m == p){
+				mc = (float **) malloc(n*sizeof(float*));
+				for (i = 0; i < q; i++){
+					mc[i] = (float *) malloc(q*sizeof(float));
+				}
+				if (mc != NULL){
+					for (i = 0; i < n; i++){
+						for (j = 0; j < q; j++){
+							for (k = 0; k < p; k++){
+								result += ma[i][k] * mb[k][j]; 
+							}
+							mc[i][j] = result;
+							result = 0;
+						}
+					}
+					return mc;
+				}
+			}
+		}
+	}
+	return NULL;
+}

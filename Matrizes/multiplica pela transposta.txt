@@ -1,0 +1,23 @@
+- Transposta de uma matriz: Os elementos são os mesmos, mas os elementos das linhas viram elementos de coluna
+
+int MultiplicaMatrizPelaTransposta(int *ma, int n, int m){
+	int *v,i,j,k,w = 0, result = 0;
+	if (ma != NULL && n>0 && m>0){
+		v = (int *) malloc(n*m*sizeof(int));
+		for (i = 0; i < n; i++){
+			for (j = 0; j < m; j++){
+				for (k = 0; k < n; k++){
+					if (j == 0 && i == j){
+						result += ma[i*m+k] * ma[i*m+k];
+					}
+					else{
+						result += ma[i*m+k] * ma[j*m+k];
+					}
+				}
+				v[w] = result;
+				w++;
+				result = 0;
+			}
+		}
+	}
+}
